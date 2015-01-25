@@ -5,6 +5,8 @@ import com.learning.iterator.Iterator;
 
 public class Bag<Item> implements Iterable<Item> 
 {
+	private int size = 0;
+	
 	class Node
 	{
 		Node(Item item, Node node)
@@ -24,10 +26,17 @@ public class Bag<Item> implements Iterable<Item>
 		return new ListIterator();
 	}
 	
+	
+	public int size()
+	{
+		return this.size;
+	}
+	
 	public void addItem(Item item)
 	{
 		Node temp = new Node(item, first);
 		first = temp;
+		size++;
 	}
 
 	private class ListIterator implements Iterator<Item>
